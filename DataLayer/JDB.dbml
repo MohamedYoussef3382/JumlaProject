@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Jumla" Class="JDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Jumla;Integrated Security=True" SettingsObjectName="DataLayer.Properties.Settings" SettingsPropertyName="JumlaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AccountTypes" Member="AccountTypes">
+    <Type Name="AccountType">
+      <Column Name="AccountTypeId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="AccountType_User" Member="Users" ThisKey="AccountTypeId" OtherKey="AccountTypeId" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Category">
+      <Column Name="CategoryId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Descirption" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ParentCategoryId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Category_Category" Member="Categories" ThisKey="CategoryId" OtherKey="ParentCategoryId" Type="Category" />
+      <Association Name="Category_Product" Member="Products" ThisKey="CategoryId" OtherKey="CategoryId" Type="Product" />
+      <Association Name="Category_Category" Member="Category1" ThisKey="ParentCategoryId" OtherKey="CategoryId" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Images" Member="Images">
+    <Type Name="Image">
+      <Column Name="ImageId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProductId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IsMainImage" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Image_User" Member="Users" ThisKey="ImageId" OtherKey="ProfilePictureId" Type="User" />
+      <Association Name="Product_Image" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InventoryStatuses" Member="InventoryStatuses">
+    <Type Name="InventoryStatuse">
+      <Column Name="InventoryStatusId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="InventoryStatuse_Product" Member="Products" ThisKey="InventoryStatusId" OtherKey="InventoryStatusId" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderPriceDetails" Member="OrderPriceDetails">
+    <Type Name="OrderPriceDetail">
+      <Column Name="OrderPriceDetailsId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OrderId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PriceCurrencyId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="SubTotalPrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TaxPrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DiscountPrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TotalPrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="Order_OrderPriceDetail" Member="Order" ThisKey="OrderId" OtherKey="OrderId" Type="Order" IsForeignKey="true" />
+      <Association Name="PriceCurrency_OrderPriceDetail" Member="PriceCurrency" ThisKey="PriceCurrencyId" OtherKey="CurrencyId" Type="PriceCurrency" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderProcductDetails" Member="OrderProcductDetails">
+    <Type Name="OrderProcductDetail">
+      <Column Name="OrderProcductDetailsId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProcductId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ProductStockDetailsId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="OrderId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Profit" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Order_OrderProcductDetail" Member="Order" ThisKey="OrderId" OtherKey="OrderId" Type="Order" IsForeignKey="true" />
+      <Association Name="Product_OrderProcductDetail" Member="Product" ThisKey="ProcductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+      <Association Name="ProductStockDetail_OrderProcductDetail" Member="ProductStockDetail" ThisKey="ProductStockDetailsId" OtherKey="ProductStockDetailsId" Type="ProductStockDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orders" Member="Orders">
+    <Type Name="Order">
+      <Column Name="OrderId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OrderStatusId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ApprovedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="OrderedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Order_OrderPriceDetail" Member="OrderPriceDetails" ThisKey="OrderId" OtherKey="OrderId" Type="OrderPriceDetail" />
+      <Association Name="Order_OrderProcductDetail" Member="OrderProcductDetails" ThisKey="OrderId" OtherKey="OrderId" Type="OrderProcductDetail" />
+      <Association Name="Order_OrderShipingDetail" Member="OrderShipingDetails" ThisKey="OrderId" OtherKey="OrderId" Type="OrderShipingDetail" />
+      <Association Name="OrderStatuse_Order" Member="OrderStatuse" ThisKey="OrderStatusId" OtherKey="OrderStatusId" Type="OrderStatuse" IsForeignKey="true" />
+      <Association Name="User_Order" Member="User" ThisKey="OrderedBy" OtherKey="UserId" Type="User" IsForeignKey="true" />
+      <Association Name="User_Order1" Member="User1" ThisKey="ApprovedBy" OtherKey="UserId" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderShipingDetails" Member="OrderShipingDetails">
+    <Type Name="OrderShipingDetail">
+      <Column Name="OrderShipingDetailsId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OrderId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="District" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Floor" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Appartment" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SpecialNotes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Order_OrderShipingDetail" Member="Order" ThisKey="OrderId" OtherKey="OrderId" Type="Order" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderStatuses" Member="OrderStatuses">
+    <Type Name="OrderStatuse">
+      <Column Name="OrderStatusId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="OrderStatuse_Order" Member="Orders" ThisKey="OrderStatusId" OtherKey="OrderStatusId" Type="Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PriceCurrency" Member="PriceCurrencies">
+    <Type Name="PriceCurrency">
+      <Column Name="CurrencyId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="PriceCurrency_OrderPriceDetail" Member="OrderPriceDetails" ThisKey="CurrencyId" OtherKey="PriceCurrencyId" Type="OrderPriceDetail" />
+      <Association Name="PriceCurrency_Product" Member="Products" ThisKey="CurrencyId" OtherKey="PriceCurrencyId" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="ProductId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="InventoryStatusId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CategoryId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PriceCurrencyId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="OldPrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ShipingPrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ServicePrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Rating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Product_Image" Member="Images" ThisKey="ProductId" OtherKey="ProductId" Type="Image" />
+      <Association Name="Product_OrderProcductDetail" Member="OrderProcductDetails" ThisKey="ProductId" OtherKey="ProcductId" Type="OrderProcductDetail" />
+      <Association Name="Product_ProductSpecification" Member="ProductSpecifications" ThisKey="ProductId" OtherKey="ProductId" Type="ProductSpecification" />
+      <Association Name="Product_ProductStockDetail" Member="ProductStockDetails" ThisKey="ProductId" OtherKey="ProductId" Type="ProductStockDetail" />
+      <Association Name="Product_WishList" Member="WishLists" ThisKey="ProductId" OtherKey="ProductId" Type="WishList" />
+      <Association Name="Category_Product" Member="Category" ThisKey="CategoryId" OtherKey="CategoryId" Type="Category" IsForeignKey="true" />
+      <Association Name="InventoryStatuse_Product" Member="InventoryStatuse" ThisKey="InventoryStatusId" OtherKey="InventoryStatusId" Type="InventoryStatuse" IsForeignKey="true" />
+      <Association Name="PriceCurrency_Product" Member="PriceCurrency" ThisKey="PriceCurrencyId" OtherKey="CurrencyId" Type="PriceCurrency" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductSpecification" Member="ProductSpecifications">
+    <Type Name="ProductSpecification">
+      <Column Name="ProductSpecificationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ProductId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Association Name="Product_ProductSpecification" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductStockDetails" Member="ProductStockDetails">
+    <Type Name="ProductStockDetail">
+      <Column Name="ProductStockDetailsId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Size" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Color" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NumAvailableInStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Association Name="ProductStockDetail_OrderProcductDetail" Member="OrderProcductDetails" ThisKey="ProductStockDetailsId" OtherKey="ProductStockDetailsId" Type="OrderProcductDetail" />
+      <Association Name="Product_ProductStockDetail" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WishList" Member="WishLists">
+    <Type Name="WishList">
+      <Column Name="WishId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Association Name="Product_WishList" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+      <Association Name="User_WishList" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PrivilageId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="AccountTypeId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ProfilePictureId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="User_Order" Member="Orders" ThisKey="UserId" OtherKey="OrderedBy" Type="Order" />
+      <Association Name="User_Order1" Member="Orders1" ThisKey="UserId" OtherKey="ApprovedBy" Type="Order" />
+      <Association Name="User_WishList" Member="WishLists" ThisKey="UserId" OtherKey="UserId" Type="WishList" />
+      <Association Name="AccountType_User" Member="AccountType" ThisKey="AccountTypeId" OtherKey="AccountTypeId" Type="AccountType" IsForeignKey="true" />
+      <Association Name="Image_User" Member="Image" ThisKey="ProfilePictureId" OtherKey="ImageId" Type="Image" IsForeignKey="true" />
+      <Association Name="Privilage_User" Member="Privilage" ThisKey="PrivilageId" OtherKey="PrivilageId" Type="Privilage" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Privilages" Member="Privilages">
+    <Type Name="Privilage">
+      <Column Name="PrivilageId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Privilage_User" Member="Users" ThisKey="PrivilageId" OtherKey="PrivilageId" Type="User" />
+    </Type>
+  </Table>
+</Database>
