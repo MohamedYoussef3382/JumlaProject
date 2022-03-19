@@ -14,7 +14,7 @@ namespace JumlaAPI.Controllers
     {
         [HttpPost]
         [Route("api/AccountLogin/Signin")]
-        public IHttpActionResult Signin(AccountLoginVM vm)
+        public IHttpActionResult Signin(UserVM vm)
         {
             try
             {

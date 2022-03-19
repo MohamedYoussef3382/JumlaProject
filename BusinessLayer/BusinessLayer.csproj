@@ -67,9 +67,9 @@
   <ItemGroup>
     <Compile Include="AbstractProvider.cs" />
     <Compile Include="AccountLoginBL.cs" />
-    <Compile Include="LoginBL.cs" />
+    <Compile Include="UserBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\AccountLoginVM.cs" />
+    <Compile Include="ViewModels\UserVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">

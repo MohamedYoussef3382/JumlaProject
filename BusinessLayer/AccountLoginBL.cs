@@ -45,7 +45,7 @@ namespace BusinessLayer
             return token;
         }
 
-        public AccountLogin Signin(AccountLoginVM vm, ref string ErrorMessage)
+        public AccountLogin Signin(UserVM vm, ref string ErrorMessage)
         {
             //var data = db.AccountLogin.Where(a => a.IsDeleted == false).SingleOrDefault(a => a.LoginName == vm.LoginName && a.Password == vm.Password);
             var data = JDB.AccountLogins.Where(a => a.IsDeleted == false).SingleOrDefault(a => a.Email == vm.Email && a.Password == vm.Password);
@@ -53,7 +53,7 @@ namespace BusinessLayer
         }
 
 
-        public void ValidateAccountLogin(AccountLoginVM accountLogin, ref string ErrorMessage)
+        public void ValidateAccountLogin(UserVM accountLogin, ref string ErrorMessage)
         {
             var User = JDB.AccountLogins.Where(a => a.IsDeleted == false).FirstOrDefault(a => a.Email == accountLogin.Email);
 
