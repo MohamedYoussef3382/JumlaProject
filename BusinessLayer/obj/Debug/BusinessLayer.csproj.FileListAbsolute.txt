@@ -29,3 +29,4 @@ D:\ISSR\Second year\Second term\Project\JumlaProject\BusinessLayer\bin\Debug\Mic
 D:\ISSR\Second year\Second term\Project\JumlaProject\BusinessLayer\bin\Debug\Microsoft.IdentityModel.Logging.xml
 D:\ISSR\Second year\Second term\Project\JumlaProject\BusinessLayer\bin\Debug\Microsoft.IdentityModel.Tokens.xml
 D:\ISSR\Second year\Second term\Project\JumlaProject\BusinessLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+D:\ISSR\Second year\Second term\Project\JumlaProject\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete

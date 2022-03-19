@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 19.75, 15.625" name="JDB">
+  <DataContextMoniker Name="/JDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ad44a114-75d4-4af5-89b4-72849d73fab0" absoluteBounds="3.75, 12.5, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/JDBDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d768e799-1f07-40f6-a05c-3f140ef8a70b" absoluteBounds="3.765, 12.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66fef9ec-8e6f-4151-bb51-d866ec394c17" absoluteBounds="9.25, 7.25, 2, 1.5785953776041675">
+      <DataClassMoniker Name="/JDBDataContext/Image" />
+      <nestedChildShapes>
+        <elementListCompartment Id="28e4a9ce-94ee-408d-91c2-2fb6aafef57c" absoluteBounds="9.265, 7.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ae3862b0-c622-460f-a8e1-70379d4da658" absoluteBounds="3.75, 6.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/JDBDataContext/InventoryStatuse" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3faf878f-ccc3-493b-bf37-2b7b4d9a8d67" absoluteBounds="3.765, 6.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f4a7fa73-8851-4005-99fc-0edb47ab2b6b" absoluteBounds="3.5, 9.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/JDBDataContext/OrderPriceDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a07cc396-8c2b-40b9-8c13-a1b13cd3f4dc" absoluteBounds="3.515, 9.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4da09b80-c7a1-4668-bb84-35d20c0b07da" absoluteBounds="17.5, 11.375, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/JDBDataContext/OrderProcductDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d75ff782-8123-4e99-a8ec-04d6ee77c9ba" absoluteBounds="17.515, 11.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cf72c098-4be0-44b3-87e1-8edd91031abd" absoluteBounds="14.75, 5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/JDBDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f5e52d9c-cd5e-4cc3-952a-893fdefca4ee" absoluteBounds="14.765, 5.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="97f51d32-b5af-4c31-8d0c-311d7e686e01" absoluteBounds="17.5, 7.25, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/JDBDataContext/OrderShipingDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ac8156cb-b917-4b6b-848f-8cb0a934aedd" absoluteBounds="17.515, 7.71, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="148ba0ac-38a8-464f-aeec-048b0657c3b9" absoluteBounds="12, 11.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/JDBDataContext/OrderStatuse" />
+      <nestedChildShapes>
+        <elementListCompartment Id="08607436-1c66-410d-ad28-fe69e2af7a00" absoluteBounds="12.015, 11.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a60e99ba-69b1-4e8b-8070-3dc80e911ecc" absoluteBounds="0.75, 9.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/JDBDataContext/PriceCurrency" />
+      <nestedChildShapes>
+        <elementListCompartment Id="24615cb5-a81a-41d5-8ffd-748477d352dd" absoluteBounds="0.765, 10.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d1831d00-e4b7-4bf9-8a3b-41b07fbb7f90" absoluteBounds="6.5, 8.625, 2, 3.6939111328124987">
+      <DataClassMoniker Name="/JDBDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fe1be329-8677-44a6-b0ff-c52ae65fd3fe" absoluteBounds="6.515, 9.085, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa8f33fd-dcc2-4bae-af43-b547440926ab" absoluteBounds="9.25, 9.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/JDBDataContext/ProductSpecification" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d8b9d75a-54f4-46dd-9f3d-44fd875413cd" absoluteBounds="9.265, 10.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ecc5e2ef-5836-4b92-a3a9-df93e82e8b74" absoluteBounds="9.25, 12, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/JDBDataContext/ProductStockDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5963bc48-49f4-43ae-8bf4-668c158684b7" absoluteBounds="9.265, 12.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="74a6db74-2614-4a56-a4a0-f7b0ed702742" absoluteBounds="14.75, 8.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/JDBDataContext/WishList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8d12412a-2998-4175-b283-9f79650c4461" absoluteBounds="14.765, 9.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e92d9416-da3a-4652-9157-1513b2c1622a" absoluteBounds="12, 6.375, 2, 3.3093082682291657">
+      <DataClassMoniker Name="/JDBDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6a107561-dded-45ba-809e-4fb756eb0823" absoluteBounds="12.015, 6.835, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2796597-e680-4525-bf63-485acd409163" absoluteBounds="9.25, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/JDBDataContext/Privilage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f6cea8e4-0bd2-44b5-a9c6-189df1872ca0" absoluteBounds="9.265, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.45923076923077 : 14.8478011067708); (4.45923076923077 : 15.0978011067708); (5.05461538461539 : 15.0978011067708); (5.05461538461539 : 14.8478011067708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/JDBDataContext/Category/Category_Category" />
+      <nodes>
+        <classShapeMoniker Id="ad44a114-75d4-4af5-89b4-72849d73fab0" />
+        <classShapeMoniker Id="ad44a114-75d4-4af5-89b4-72849d73fab0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.5 : 8.625); (7.5 : 7.9374995); (9.25 : 7.9374995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/Product/Product_Image" />
+      <nodes>
+        <classShapeMoniker Id="d1831d00-e4b7-4bf9-8a3b-41b07fbb7f90" />
+        <classShapeMoniker Id="66fef9ec-8e6f-4151-bb51-d866ec394c17" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.75 : 5.78929768880208); (13.3020833333333 : 5.78929768880208 : JumpStart); (13.1354166666667 : 5.78929768880208 : JumpEnd); (11.4270833333333 : 5.78929768880208 : JumpStart); (11.2604166666667 : 5.78929768880208 : JumpEnd); (3.59375 : 5.78929768880208); (3.59375 : 9.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/Order/Order_OrderPriceDetail" />
+      <nodes>
+        <classShapeMoniker Id="cf72c098-4be0-44b3-87e1-8edd91031abd" />
+        <classShapeMoniker Id="f4a7fa73-8851-4005-99fc-0edb47ab2b6b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 10.5392976888021); (3.5 : 10.5392976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/PriceCurrency/PriceCurrency_OrderPriceDetail" />
+      <nodes>
+        <classShapeMoniker Id="a60e99ba-69b1-4e8b-8070-3dc80e911ecc" />
+        <classShapeMoniker Id="f4a7fa73-8851-4005-99fc-0edb47ab2b6b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.75 : 7.15549967447917); (17.125 : 7.53049967447917); (17.125 : 12.3565991210937); (17.5 : 12.3565991210937)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/Order/Order_OrderProcductDetail" />
+      <nodes>
+        <classShapeMoniker Id="cf72c098-4be0-44b3-87e1-8edd91031abd" />
+        <classShapeMoniker Id="4da09b80-c7a1-4668-bb84-35d20c0b07da" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 10.4719555664062); (9 : 10.4719555664062); (9 : 11.4535953776042); (11.75 : 11.4535953776042); (11.75 : 11.125); (14.1666666666667 : 11.125 : JumpStart); (14.3333333333333 : 11.125 : JumpEnd); (15.6666666666667 : 11.125 : JumpStart); (15.8333333333333 : 11.125 : JumpEnd); (17.0416666666667 : 11.125 : JumpStart); (17.2083333333333 : 11.125 : JumpEnd); (18.5 : 11.125); (18.5 : 11.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/Product/Product_OrderProcductDetail" />
+      <nodes>
+        <classShapeMoniker Id="d1831d00-e4b7-4bf9-8a3b-41b07fbb7f90" />
+        <classShapeMoniker Id="4da09b80-c7a1-4668-bb84-35d20c0b07da" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 13.1771468098958); (17.5 : 13.1771468098958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/ProductStockDetail/ProductStockDetail_OrderProcductDetail" />
+      <nodes>
+        <classShapeMoniker Id="ecc5e2ef-5836-4b92-a3a9-df93e82e8b74" />
+        <classShapeMoniker Id="4da09b80-c7a1-4668-bb84-35d20c0b07da" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 11.375); (14.375 : 11); (14.375 : 6.37462683723958); (14.75 : 6.37462683723958)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/OrderStatuse/OrderStatuse_Order" />
+      <nodes>
+        <classShapeMoniker Id="148ba0ac-38a8-464f-aeec-048b0657c3b9" />
+        <classShapeMoniker Id="cf72c098-4be0-44b3-87e1-8edd91031abd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 6.76524983723958); (14.2916666666667 : 6.76524983723958 : JumpStart); (14.4583333333333 : 6.76524983723958 : JumpEnd); (14.75 : 6.76524983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/User/User_Order" />
+      <nodes>
+        <classShapeMoniker Id="e92d9416-da3a-4652-9157-1513b2c1622a" />
+        <classShapeMoniker Id="cf72c098-4be0-44b3-87e1-8edd91031abd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 6.50762491861979); (14.2916666666667 : 6.50762491861979 : JumpStart); (14.4583333333333 : 6.50762491861979 : JumpEnd); (14.75 : 6.50762491861979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/User/User_Order1" />
+      <nodes>
+        <classShapeMoniker Id="e92d9416-da3a-4652-9157-1513b2c1622a" />
+        <classShapeMoniker Id="cf72c098-4be0-44b3-87e1-8edd91031abd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.75 : 6.04649733723958); (18.5 : 6.04649733723958); (18.5 : 7.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/Order/Order_OrderShipingDetail" />
+      <nodes>
+        <classShapeMoniker Id="cf72c098-4be0-44b3-87e1-8edd91031abd" />
+        <classShapeMoniker Id="97f51d32-b5af-4c31-8d0c-311d7e686e01" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 13.6739005533854); (7.5 : 13.6739005533854); (7.5 : 12.3189111328125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/Category/Category_Product" />
+      <nodes>
+        <classShapeMoniker Id="ad44a114-75d4-4af5-89b4-72849d73fab0" />
+        <classShapeMoniker Id="d1831d00-e4b7-4bf9-8a3b-41b07fbb7f90" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.65625 : 7.70359537760417); (5.65625 : 11.9559554036458); (6.5 : 11.9559554036458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/InventoryStatuse/InventoryStatuse_Product" />
+      <nodes>
+        <classShapeMoniker Id="ae3862b0-c622-460f-a8e1-70379d4da658" />
+        <classShapeMoniker Id="d1831d00-e4b7-4bf9-8a3b-41b07fbb7f90" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 11.3285953776042); (1.75 : 11.7432250390625); (5.57291666666667 : 11.7432250390625 : JumpStart); (5.73958333333333 : 11.7432250390625 : JumpEnd); (6.5 : 11.7432250390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/PriceCurrency/PriceCurrency_Product" />
+      <nodes>
+        <classShapeMoniker Id="a60e99ba-69b1-4e8b-8070-3dc80e911ecc" />
+        <classShapeMoniker Id="d1831d00-e4b7-4bf9-8a3b-41b07fbb7f90" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 9.98597778320313); (9.25 : 9.98597778320313)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/Product/Product_ProductSpecification" />
+      <nodes>
+        <classShapeMoniker Id="d1831d00-e4b7-4bf9-8a3b-41b07fbb7f90" />
+        <classShapeMoniker Id="fa8f33fd-dcc2-4bae-af43-b547440926ab" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.0312525 : 12.3189111328125); (8.0312525 : 13.027658343099); (9.25 : 13.027658343099)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/Product/Product_ProductStockDetail" />
+      <nodes>
+        <classShapeMoniker Id="d1831d00-e4b7-4bf9-8a3b-41b07fbb7f90" />
+        <classShapeMoniker Id="ecc5e2ef-5836-4b92-a3a9-df93e82e8b74" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 11.2892976888021); (8.91666666666667 : 11.2892976888021 : JumpStart); (9.08333333333333 : 11.2892976888021 : JumpEnd); (11.6666666666667 : 11.2892976888021 : JumpStart); (11.8333333333333 : 11.2892976888021 : JumpEnd); (14.0023689778646 : 11.2892976888021 : JumpStart); (14.1690356445313 : 11.2892976888021 : JumpEnd); (15.75 : 11.2892976888021); (15.75 : 10.1362939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/Product/Product_WishList" />
+      <nodes>
+        <classShapeMoniker Id="d1831d00-e4b7-4bf9-8a3b-41b07fbb7f90" />
+        <classShapeMoniker Id="74a6db74-2614-4a56-a4a0-f7b0ed702742" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 9.21715413411458); (14.2916666666667 : 9.21715413411458 : JumpStart); (14.4583333333333 : 9.21715413411458 : JumpEnd); (14.75 : 9.21715413411458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/User/User_WishList" />
+      <nodes>
+        <classShapeMoniker Id="e92d9416-da3a-4652-9157-1513b2c1622a" />
+        <classShapeMoniker Id="74a6db74-2614-4a56-a4a0-f7b0ed702742" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 8.03929768880208); (12 : 8.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/Image/Image_User" />
+      <nodes>
+        <classShapeMoniker Id="66fef9ec-8e6f-4151-bb51-d866ec394c17" />
+        <classShapeMoniker Id="e92d9416-da3a-4652-9157-1513b2c1622a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 1.53929768880208); (13.21875 : 1.53929768880208); (13.21875 : 6.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/Privilage/Privilage_User" />
+      <nodes>
+        <classShapeMoniker Id="a2796597-e680-4525-bf63-485acd409163" />
+        <classShapeMoniker Id="e92d9416-da3a-4652-9157-1513b2c1622a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cd9bf6c7-c32d-40a3-9a1a-b3b179b550c0" absoluteBounds="9.375, 3.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/JDBDataContext/AccountType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cbea9e44-6dd1-47a6-ac85-f6a5329b294f" absoluteBounds="9.39, 4.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.34375 : 5.45359537760417); (11.34375 : 6.78125); (12 : 6.78125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDBDataContext/AccountType/AccountType_User" />
+      <nodes>
+        <classShapeMoniker Id="cd9bf6c7-c32d-40a3-9a1a-b3b179b550c0" />
+        <classShapeMoniker Id="e92d9416-da3a-4652-9157-1513b2c1622a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

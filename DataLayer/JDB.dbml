@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Jumla" Class="JDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Jumla;Integrated Security=True" SettingsObjectName="DataLayer.Properties.Settings" SettingsPropertyName="JumlaConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.AccountTypes" Member="AccountTypes">
-    <Type Name="AccountType">
-      <Column Name="AccountTypeId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="AccountType_User" Member="Users" ThisKey="AccountTypeId" OtherKey="AccountTypeId" Type="User" />
-    </Type>
-  </Table>
   <Table Name="dbo.Categories" Member="Categories">
     <Type Name="Category">
       <Column Name="CategoryId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -19,8 +10,8 @@
       <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="UpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Category_Category" Member="Categories" ThisKey="CategoryId" OtherKey="ParentCategoryId" Type="Category" />
-      <Association Name="Category_Product" Member="Products" ThisKey="CategoryId" OtherKey="CategoryId" Type="Product" />
+      <Association Name="Category_Category" Member="Categories" AccessModifier="Internal" ThisKey="CategoryId" OtherKey="ParentCategoryId" Type="Category" />
+      <Association Name="Category_Product" Member="Products" AccessModifier="Internal" ThisKey="CategoryId" OtherKey="CategoryId" Type="Product" />
       <Association Name="Category_Category" Member="Category1" ThisKey="ParentCategoryId" OtherKey="CategoryId" Type="Category" IsForeignKey="true" />
     </Type>
   </Table>
@@ -40,7 +31,7 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="InventoryStatuse_Product" Member="Products" ThisKey="InventoryStatusId" OtherKey="InventoryStatusId" Type="Product" />
+      <Association Name="InventoryStatuse_Product" Member="Products" AccessModifier="Internal" ThisKey="InventoryStatusId" OtherKey="InventoryStatusId" Type="Product" />
     </Type>
   </Table>
   <Table Name="dbo.OrderPriceDetails" Member="OrderPriceDetails">
@@ -78,9 +69,9 @@
       <Column Name="OrderedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="UpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Order_OrderPriceDetail" Member="OrderPriceDetails" ThisKey="OrderId" OtherKey="OrderId" Type="OrderPriceDetail" />
-      <Association Name="Order_OrderProcductDetail" Member="OrderProcductDetails" ThisKey="OrderId" OtherKey="OrderId" Type="OrderProcductDetail" />
-      <Association Name="Order_OrderShipingDetail" Member="OrderShipingDetails" ThisKey="OrderId" OtherKey="OrderId" Type="OrderShipingDetail" />
+      <Association Name="Order_OrderPriceDetail" Member="OrderPriceDetails" AccessModifier="Internal" ThisKey="OrderId" OtherKey="OrderId" Type="OrderPriceDetail" />
+      <Association Name="Order_OrderProcductDetail" Member="OrderProcductDetails" AccessModifier="Internal" ThisKey="OrderId" OtherKey="OrderId" Type="OrderProcductDetail" />
+      <Association Name="Order_OrderShipingDetail" Member="OrderShipingDetails" AccessModifier="Internal" ThisKey="OrderId" OtherKey="OrderId" Type="OrderShipingDetail" />
       <Association Name="OrderStatuse_Order" Member="OrderStatuse" ThisKey="OrderStatusId" OtherKey="OrderStatusId" Type="OrderStatuse" IsForeignKey="true" />
       <Association Name="User_Order" Member="User" ThisKey="OrderedBy" OtherKey="UserId" Type="User" IsForeignKey="true" />
       <Association Name="User_Order1" Member="User1" ThisKey="ApprovedBy" OtherKey="UserId" Type="User" IsForeignKey="true" />
@@ -109,7 +100,7 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="Code" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="OrderStatuse_Order" Member="Orders" ThisKey="OrderStatusId" OtherKey="OrderStatusId" Type="Order" />
+      <Association Name="OrderStatuse_Order" Member="Orders" AccessModifier="Internal" ThisKey="OrderStatusId" OtherKey="OrderStatusId" Type="Order" />
     </Type>
   </Table>
   <Table Name="dbo.PriceCurrency" Member="PriceCurrencies">
@@ -118,8 +109,8 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="PriceCurrency_OrderPriceDetail" Member="OrderPriceDetails" ThisKey="CurrencyId" OtherKey="PriceCurrencyId" Type="OrderPriceDetail" />
-      <Association Name="PriceCurrency_Product" Member="Products" ThisKey="CurrencyId" OtherKey="PriceCurrencyId" Type="Product" />
+      <Association Name="PriceCurrency_OrderPriceDetail" Member="OrderPriceDetails" AccessModifier="Internal" ThisKey="CurrencyId" OtherKey="PriceCurrencyId" Type="OrderPriceDetail" />
+      <Association Name="PriceCurrency_Product" Member="Products" AccessModifier="Internal" ThisKey="CurrencyId" OtherKey="PriceCurrencyId" Type="Product" />
     </Type>
   </Table>
   <Table Name="dbo.Products" Member="Products">
@@ -139,11 +130,11 @@
       <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="UpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Product_Image" Member="Images" ThisKey="ProductId" OtherKey="ProductId" Type="Image" />
-      <Association Name="Product_OrderProcductDetail" Member="OrderProcductDetails" ThisKey="ProductId" OtherKey="ProcductId" Type="OrderProcductDetail" />
-      <Association Name="Product_ProductSpecification" Member="ProductSpecifications" ThisKey="ProductId" OtherKey="ProductId" Type="ProductSpecification" />
-      <Association Name="Product_ProductStockDetail" Member="ProductStockDetails" ThisKey="ProductId" OtherKey="ProductId" Type="ProductStockDetail" />
-      <Association Name="Product_WishList" Member="WishLists" ThisKey="ProductId" OtherKey="ProductId" Type="WishList" />
+      <Association Name="Product_Image" Member="Images" AccessModifier="Internal" ThisKey="ProductId" OtherKey="ProductId" Type="Image" />
+      <Association Name="Product_OrderProcductDetail" Member="OrderProcductDetails" AccessModifier="Internal" ThisKey="ProductId" OtherKey="ProcductId" Type="OrderProcductDetail" />
+      <Association Name="Product_ProductSpecification" Member="ProductSpecifications" AccessModifier="Internal" ThisKey="ProductId" OtherKey="ProductId" Type="ProductSpecification" />
+      <Association Name="Product_ProductStockDetail" Member="ProductStockDetails" AccessModifier="Internal" ThisKey="ProductId" OtherKey="ProductId" Type="ProductStockDetail" />
+      <Association Name="Product_WishList" Member="WishLists" AccessModifier="Internal" ThisKey="ProductId" OtherKey="ProductId" Type="WishList" />
       <Association Name="Category_Product" Member="Category" ThisKey="CategoryId" OtherKey="CategoryId" Type="Category" IsForeignKey="true" />
       <Association Name="InventoryStatuse_Product" Member="InventoryStatuse" ThisKey="InventoryStatusId" OtherKey="InventoryStatusId" Type="InventoryStatuse" IsForeignKey="true" />
       <Association Name="PriceCurrency_Product" Member="PriceCurrency" ThisKey="PriceCurrencyId" OtherKey="CurrencyId" Type="PriceCurrency" IsForeignKey="true" />
@@ -165,7 +156,7 @@
       <Column Name="Color" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="NumAvailableInStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ProductId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Association Name="ProductStockDetail_OrderProcductDetail" Member="OrderProcductDetails" ThisKey="ProductStockDetailsId" OtherKey="ProductStockDetailsId" Type="OrderProcductDetail" />
+      <Association Name="ProductStockDetail_OrderProcductDetail" Member="OrderProcductDetails" AccessModifier="Internal" ThisKey="ProductStockDetailsId" OtherKey="ProductStockDetailsId" Type="OrderProcductDetail" />
       <Association Name="Product_ProductStockDetail" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
@@ -193,12 +184,12 @@
       <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="UpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="User_Order" Member="Orders" ThisKey="UserId" OtherKey="OrderedBy" Type="Order" />
-      <Association Name="User_Order1" Member="Orders1" ThisKey="UserId" OtherKey="ApprovedBy" Type="Order" />
-      <Association Name="User_WishList" Member="WishLists" ThisKey="UserId" OtherKey="UserId" Type="WishList" />
-      <Association Name="AccountType_User" Member="AccountType" ThisKey="AccountTypeId" OtherKey="AccountTypeId" Type="AccountType" IsForeignKey="true" />
+      <Association Name="User_Order" Member="Orders" AccessModifier="Internal" ThisKey="UserId" OtherKey="OrderedBy" Type="Order" />
+      <Association Name="User_Order1" Member="Orders1" AccessModifier="Internal" ThisKey="UserId" OtherKey="ApprovedBy" Type="Order" />
+      <Association Name="User_WishList" Member="WishLists" AccessModifier="Internal" ThisKey="UserId" OtherKey="UserId" Type="WishList" />
       <Association Name="Image_User" Member="Image" ThisKey="ProfilePictureId" OtherKey="ImageId" Type="Image" IsForeignKey="true" />
       <Association Name="Privilage_User" Member="Privilage" ThisKey="PrivilageId" OtherKey="PrivilageId" Type="Privilage" IsForeignKey="true" />
+      <Association Name="AccountType_User" Member="AccountType" ThisKey="AccountTypeId" OtherKey="AccountTypeId" Type="AccountType" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Privilages" Member="Privilages">
@@ -207,7 +198,16 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Privilage_User" Member="Users" ThisKey="PrivilageId" OtherKey="PrivilageId" Type="User" />
+      <Association Name="Privilage_User" Member="Users" AccessModifier="Internal" ThisKey="PrivilageId" OtherKey="PrivilageId" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AccountTypes" Member="AccountTypes">
+    <Type Name="AccountType">
+      <Column Name="AccountTypeId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="AccountType_User" Member="Users" AccessModifier="Internal" ThisKey="AccountTypeId" OtherKey="AccountTypeId" Type="User" />
     </Type>
   </Table>
 </Database>

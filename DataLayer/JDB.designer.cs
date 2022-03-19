@@ -30,9 +30,6 @@ namespace DataLayer
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertAccountType(AccountType instance);
-    partial void UpdateAccountType(AccountType instance);
-    partial void DeleteAccountType(AccountType instance);
     partial void InsertCategory(Category instance);
     partial void UpdateCategory(Category instance);
     partial void DeleteCategory(Category instance);
@@ -78,6 +75,9 @@ namespace DataLayer
     partial void InsertPrivilage(Privilage instance);
     partial void UpdatePrivilage(Privilage instance);
     partial void DeletePrivilage(Privilage instance);
+    partial void InsertAccountType(AccountType instance);
+    partial void UpdateAccountType(AccountType instance);
+    partial void DeleteAccountType(AccountType instance);
     #endregion
 		
 		public JDBDataContext() : 
@@ -108,14 +108,6 @@ namespace DataLayer
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<AccountType> AccountTypes
-		{
-			get
-			{
-				return this.GetTable<AccountType>();
-			}
 		}
 		
 		public System.Data.Linq.Table<Category> Categories
@@ -237,167 +229,13 @@ namespace DataLayer
 				return this.GetTable<Privilage>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AccountTypes")]
-	public partial class AccountType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _AccountTypeId;
-		
-		private string _Name;
-		
-		private string _Description;
-		
-		private bool _IsDeleted;
-		
-		private EntitySet<User> _Users;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnAccountTypeIdChanging(System.Guid value);
-    partial void OnAccountTypeIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnIsDeletedChanging(bool value);
-    partial void OnIsDeletedChanged();
-    #endregion
-		
-		public AccountType()
-		{
-			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountTypeId", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid AccountTypeId
+		public System.Data.Linq.Table<AccountType> AccountTypes
 		{
 			get
 			{
-				return this._AccountTypeId;
+				return this.GetTable<AccountType>();
 			}
-			set
-			{
-				if ((this._AccountTypeId != value))
-				{
-					this.OnAccountTypeIdChanging(value);
-					this.SendPropertyChanging();
-					this._AccountTypeId = value;
-					this.SendPropertyChanged("AccountTypeId");
-					this.OnAccountTypeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(250)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDeleted", DbType="Bit NOT NULL")]
-		public bool IsDeleted
-		{
-			get
-			{
-				return this._IsDeleted;
-			}
-			set
-			{
-				if ((this._IsDeleted != value))
-				{
-					this.OnIsDeletedChanging(value);
-					this.SendPropertyChanging();
-					this._IsDeleted = value;
-					this.SendPropertyChanged("IsDeleted");
-					this.OnIsDeletedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AccountType_User", Storage="_Users", ThisKey="AccountTypeId", OtherKey="AccountTypeId")]
-		public EntitySet<User> Users
-		{
-			get
-			{
-				return this._Users;
-			}
-			set
-			{
-				this._Users.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.AccountType = this;
-		}
-		
-		private void detach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.AccountType = null;
 		}
 	}
 	
@@ -624,7 +462,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Category", Storage="_Categories", ThisKey="CategoryId", OtherKey="ParentCategoryId")]
-		public EntitySet<Category> Categories
+		internal EntitySet<Category> Categories
 		{
 			get
 			{
@@ -637,7 +475,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Product", Storage="_Products", ThisKey="CategoryId", OtherKey="CategoryId")]
-		public EntitySet<Product> Products
+		internal EntitySet<Product> Products
 		{
 			get
 			{
@@ -1048,7 +886,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InventoryStatuse_Product", Storage="_Products", ThisKey="InventoryStatusId", OtherKey="InventoryStatusId")]
-		public EntitySet<Product> Products
+		internal EntitySet<Product> Products
 		{
 			get
 			{
@@ -1902,7 +1740,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_OrderPriceDetail", Storage="_OrderPriceDetails", ThisKey="OrderId", OtherKey="OrderId")]
-		public EntitySet<OrderPriceDetail> OrderPriceDetails
+		internal EntitySet<OrderPriceDetail> OrderPriceDetails
 		{
 			get
 			{
@@ -1915,7 +1753,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_OrderProcductDetail", Storage="_OrderProcductDetails", ThisKey="OrderId", OtherKey="OrderId")]
-		public EntitySet<OrderProcductDetail> OrderProcductDetails
+		internal EntitySet<OrderProcductDetail> OrderProcductDetails
 		{
 			get
 			{
@@ -1928,7 +1766,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_OrderShipingDetail", Storage="_OrderShipingDetails", ThisKey="OrderId", OtherKey="OrderId")]
-		public EntitySet<OrderShipingDetail> OrderShipingDetails
+		internal EntitySet<OrderShipingDetail> OrderShipingDetails
 		{
 			get
 			{
@@ -2583,7 +2421,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OrderStatuse_Order", Storage="_Orders", ThisKey="OrderStatusId", OtherKey="OrderStatusId")]
-		public EntitySet<Order> Orders
+		internal EntitySet<Order> Orders
 		{
 			get
 			{
@@ -2748,7 +2586,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PriceCurrency_OrderPriceDetail", Storage="_OrderPriceDetails", ThisKey="CurrencyId", OtherKey="PriceCurrencyId")]
-		public EntitySet<OrderPriceDetail> OrderPriceDetails
+		internal EntitySet<OrderPriceDetail> OrderPriceDetails
 		{
 			get
 			{
@@ -2761,7 +2599,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PriceCurrency_Product", Storage="_Products", ThisKey="CurrencyId", OtherKey="PriceCurrencyId")]
-		public EntitySet<Product> Products
+		internal EntitySet<Product> Products
 		{
 			get
 			{
@@ -3232,7 +3070,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_Image", Storage="_Images", ThisKey="ProductId", OtherKey="ProductId")]
-		public EntitySet<Image> Images
+		internal EntitySet<Image> Images
 		{
 			get
 			{
@@ -3245,7 +3083,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_OrderProcductDetail", Storage="_OrderProcductDetails", ThisKey="ProductId", OtherKey="ProcductId")]
-		public EntitySet<OrderProcductDetail> OrderProcductDetails
+		internal EntitySet<OrderProcductDetail> OrderProcductDetails
 		{
 			get
 			{
@@ -3258,7 +3096,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_ProductSpecification", Storage="_ProductSpecifications", ThisKey="ProductId", OtherKey="ProductId")]
-		public EntitySet<ProductSpecification> ProductSpecifications
+		internal EntitySet<ProductSpecification> ProductSpecifications
 		{
 			get
 			{
@@ -3271,7 +3109,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_ProductStockDetail", Storage="_ProductStockDetails", ThisKey="ProductId", OtherKey="ProductId")]
-		public EntitySet<ProductStockDetail> ProductStockDetails
+		internal EntitySet<ProductStockDetail> ProductStockDetails
 		{
 			get
 			{
@@ -3284,7 +3122,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_WishList", Storage="_WishLists", ThisKey="ProductId", OtherKey="ProductId")]
-		public EntitySet<WishList> WishLists
+		internal EntitySet<WishList> WishLists
 		{
 			get
 			{
@@ -3802,7 +3640,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductStockDetail_OrderProcductDetail", Storage="_OrderProcductDetails", ThisKey="ProductStockDetailsId", OtherKey="ProductStockDetailsId")]
-		public EntitySet<OrderProcductDetail> OrderProcductDetails
+		internal EntitySet<OrderProcductDetail> OrderProcductDetails
 		{
 			get
 			{
@@ -4111,11 +3949,11 @@ namespace DataLayer
 		
 		private EntitySet<WishList> _WishLists;
 		
-		private EntityRef<AccountType> _AccountType;
-		
 		private EntityRef<Image> _Image;
 		
 		private EntityRef<Privilage> _Privilage;
+		
+		private EntityRef<AccountType> _AccountType;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -4154,9 +3992,9 @@ namespace DataLayer
 			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 			this._Orders1 = new EntitySet<Order>(new Action<Order>(this.attach_Orders1), new Action<Order>(this.detach_Orders1));
 			this._WishLists = new EntitySet<WishList>(new Action<WishList>(this.attach_WishLists), new Action<WishList>(this.detach_WishLists));
-			this._AccountType = default(EntityRef<AccountType>);
 			this._Image = default(EntityRef<Image>);
 			this._Privilage = default(EntityRef<Privilage>);
+			this._AccountType = default(EntityRef<AccountType>);
 			OnCreated();
 		}
 		
@@ -4433,7 +4271,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Order", Storage="_Orders", ThisKey="UserId", OtherKey="OrderedBy")]
-		public EntitySet<Order> Orders
+		internal EntitySet<Order> Orders
 		{
 			get
 			{
@@ -4446,7 +4284,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Order1", Storage="_Orders1", ThisKey="UserId", OtherKey="ApprovedBy")]
-		public EntitySet<Order> Orders1
+		internal EntitySet<Order> Orders1
 		{
 			get
 			{
@@ -4459,7 +4297,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_WishList", Storage="_WishLists", ThisKey="UserId", OtherKey="UserId")]
-		public EntitySet<WishList> WishLists
+		internal EntitySet<WishList> WishLists
 		{
 			get
 			{
@@ -4468,40 +4306,6 @@ namespace DataLayer
 			set
 			{
 				this._WishLists.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AccountType_User", Storage="_AccountType", ThisKey="AccountTypeId", OtherKey="AccountTypeId", IsForeignKey=true)]
-		public AccountType AccountType
-		{
-			get
-			{
-				return this._AccountType.Entity;
-			}
-			set
-			{
-				AccountType previousValue = this._AccountType.Entity;
-				if (((previousValue != value) 
-							|| (this._AccountType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._AccountType.Entity = null;
-						previousValue.Users.Remove(this);
-					}
-					this._AccountType.Entity = value;
-					if ((value != null))
-					{
-						value.Users.Add(this);
-						this._AccountTypeId = value.AccountTypeId;
-					}
-					else
-					{
-						this._AccountTypeId = default(Nullable<System.Guid>);
-					}
-					this.SendPropertyChanged("AccountType");
-				}
 			}
 		}
 		
@@ -4569,6 +4373,40 @@ namespace DataLayer
 						this._PrivilageId = default(Nullable<System.Guid>);
 					}
 					this.SendPropertyChanged("Privilage");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AccountType_User", Storage="_AccountType", ThisKey="AccountTypeId", OtherKey="AccountTypeId", IsForeignKey=true)]
+		public AccountType AccountType
+		{
+			get
+			{
+				return this._AccountType.Entity;
+			}
+			set
+			{
+				AccountType previousValue = this._AccountType.Entity;
+				if (((previousValue != value) 
+							|| (this._AccountType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._AccountType.Entity = null;
+						previousValue.Users.Remove(this);
+					}
+					this._AccountType.Entity = value;
+					if ((value != null))
+					{
+						value.Users.Add(this);
+						this._AccountTypeId = value.AccountTypeId;
+					}
+					else
+					{
+						this._AccountTypeId = default(Nullable<System.Guid>);
+					}
+					this.SendPropertyChanged("AccountType");
 				}
 			}
 		}
@@ -4747,7 +4585,7 @@ namespace DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Privilage_User", Storage="_Users", ThisKey="PrivilageId", OtherKey="PrivilageId")]
-		public EntitySet<User> Users
+		internal EntitySet<User> Users
 		{
 			get
 			{
@@ -4789,6 +4627,168 @@ namespace DataLayer
 		{
 			this.SendPropertyChanging();
 			entity.Privilage = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AccountTypes")]
+	public partial class AccountType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _AccountTypeId;
+		
+		private string _Name;
+		
+		private string _Description;
+		
+		private bool _IsDeleted;
+		
+		private EntitySet<User> _Users;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAccountTypeIdChanging(System.Guid value);
+    partial void OnAccountTypeIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnIsDeletedChanging(bool value);
+    partial void OnIsDeletedChanged();
+    #endregion
+		
+		public AccountType()
+		{
+			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountTypeId", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid AccountTypeId
+		{
+			get
+			{
+				return this._AccountTypeId;
+			}
+			set
+			{
+				if ((this._AccountTypeId != value))
+				{
+					this.OnAccountTypeIdChanging(value);
+					this.SendPropertyChanging();
+					this._AccountTypeId = value;
+					this.SendPropertyChanged("AccountTypeId");
+					this.OnAccountTypeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(250)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDeleted", DbType="Bit NOT NULL")]
+		public bool IsDeleted
+		{
+			get
+			{
+				return this._IsDeleted;
+			}
+			set
+			{
+				if ((this._IsDeleted != value))
+				{
+					this.OnIsDeletedChanging(value);
+					this.SendPropertyChanging();
+					this._IsDeleted = value;
+					this.SendPropertyChanged("IsDeleted");
+					this.OnIsDeletedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AccountType_User", Storage="_Users", ThisKey="AccountTypeId", OtherKey="AccountTypeId")]
+		internal EntitySet<User> Users
+		{
+			get
+			{
+				return this._Users;
+			}
+			set
+			{
+				this._Users.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.AccountType = this;
+		}
+		
+		private void detach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.AccountType = null;
 		}
 	}
 }
