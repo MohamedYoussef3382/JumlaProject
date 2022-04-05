@@ -9,12 +9,16 @@ namespace BusinessLayer.ViewModels
 {
     public class UserVM
     {
-        public Guid PrivilageId { get; set; }
-        public Guid? AccountTypeId { get; set; }
+        public Guid UserId { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
         public string Address { get; set; }
+        public Guid AccountTypeId { get; set; }
+        public string AccountType { get; set; }
+        public Guid PrivilageId { get; set; }
+        public string Privilage { get; set; }
+
+        public string Password { get; set; }
         public bool IsDeleted { get; set; }
         public Guid? CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }

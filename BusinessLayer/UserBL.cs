@@ -15,11 +15,12 @@ namespace BusinessLayer
     {
         private const string Secret = "db3OIsj+BXE9NZDy0t8W3TcNekrF+2d/1sFnWG4HnV8TZY30iTOdtVWJG8abWvB1GlOgJuQZdcF2Luqm/hccMw==";
 
-        public static string GenerateToken(User userVM)//, int expireMinutes = 20
+        public static string GenerateToken(User_SigninResult userVM)//, int expireMinutes = 20
         {
             var symmetricKey = Convert.FromBase64String(Secret);
             var tokenHandler = new JwtSecurityTokenHandler();
 
+            var accountType = userVM.AccountType == null ? "null" : userVM.AccountType;
             //  var now = DateTime.UtcNow;
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -29,8 +30,8 @@ namespace BusinessLayer
             new Claim("name", userVM.Name),
             new Claim("email", userVM.Email),
             new Claim("address", userVM.Address),
-            new Claim("accountTypeId", userVM.AccountTypeId.ToString()),
-            new Claim("privilageId", userVM.PrivilageId.ToString())
+            new Claim("accountType", accountType),
+            new Claim("privilage", userVM.Privilage)
               }),
 
                 //Expires = now.AddMinutes(Convert.ToInt32(expireMinutes)),
@@ -46,10 +47,11 @@ namespace BusinessLayer
             return token;
         }
 
-        public User Signin(SigninVM vm, ref string ErrorMessage)
+        public User_SigninResult Signin(SigninVM vm, ref string ErrorMessage)
         {
             //var data = db.AccountLogin.Where(a => a.IsDeleted == false).SingleOrDefault(a => a.LoginName == vm.LoginName && a.Password == vm.Password);
-            var data = JDB.Users.Where(a => a.IsDeleted == false).SingleOrDefault(a => a.Email == vm.Email && a.Password == vm.Password);
+            var data = JDB.User_Signin(vm.Email, vm.Password).FirstOrDefault();
+            //var data = JDB.Users.Where(a => a.IsDeleted == false).SingleOrDefault(a => a.Email == vm.Email && a.Password == vm.Password);
             return data;
         }
 

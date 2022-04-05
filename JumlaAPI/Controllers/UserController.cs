@@ -39,8 +39,8 @@ namespace JumlaAPI.Controllers
               
                 if (data != null)
                 {
-                    var tokan = UserBL.GenerateToken(data);
-                    return Ok(new { success = true, successMessage = "Success", tokan = tokan });
+                    var token = UserBL.GenerateToken(data);
+                    return Ok(new { success = true, successMessage = "Success", token = token });
                     //  Session["uname"] = vm.LoginName;
                     //return Ok(new DepartmentApiController().GetAllDepartment(1, 1000));
                 }

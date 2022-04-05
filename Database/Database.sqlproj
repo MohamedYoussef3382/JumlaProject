@@ -60,6 +60,7 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\AccountTypes.sql" />
@@ -78,5 +79,6 @@
     <Build Include="dbo\Tables\ProductStockDetails.sql" />
     <Build Include="dbo\Tables\Users.sql" />
     <Build Include="dbo\Tables\WishList.sql" />
+    <Build Include="dbo\Stored Procedures\User_Signin.sql" />
   </ItemGroup>
 </Project>

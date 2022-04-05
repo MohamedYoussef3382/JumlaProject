@@ -237,6 +237,13 @@ namespace DataLayer
 				return this.GetTable<AccountType>();
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.User_Signin")]
+		public ISingleResult<User_SigninResult> User_Signin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(255)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(255)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password);
+			return ((ISingleResult<User_SigninResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Categories")]
@@ -4789,6 +4796,158 @@ namespace DataLayer
 		{
 			this.SendPropertyChanging();
 			entity.AccountType = null;
+		}
+	}
+	
+	public partial class User_SigninResult
+	{
+		
+		private System.Guid _UserId;
+		
+		private string _Name;
+		
+		private string _Email;
+		
+		private string _Address;
+		
+		private System.Nullable<System.Guid> _AccountTypeId;
+		
+		private string _AccountType;
+		
+		private System.Nullable<System.Guid> _PrivilageId;
+		
+		private string _Privilage;
+		
+		public User_SigninResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this._UserId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(255)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(255)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(255)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountTypeId", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> AccountTypeId
+		{
+			get
+			{
+				return this._AccountTypeId;
+			}
+			set
+			{
+				if ((this._AccountTypeId != value))
+				{
+					this._AccountTypeId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountType", DbType="NVarChar(250)")]
+		public string AccountType
+		{
+			get
+			{
+				return this._AccountType;
+			}
+			set
+			{
+				if ((this._AccountType != value))
+				{
+					this._AccountType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrivilageId", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> PrivilageId
+		{
+			get
+			{
+				return this._PrivilageId;
+			}
+			set
+			{
+				if ((this._PrivilageId != value))
+				{
+					this._PrivilageId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Privilage", DbType="NVarChar(250)")]
+		public string Privilage
+		{
+			get
+			{
+				return this._Privilage;
+			}
+			set
+			{
+				if ((this._Privilage != value))
+				{
+					this._Privilage = value;
+				}
+			}
 		}
 	}
 }

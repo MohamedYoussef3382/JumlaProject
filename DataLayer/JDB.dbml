@@ -210,4 +210,18 @@
       <Association Name="AccountType_User" Member="Users" AccessModifier="Internal" ThisKey="AccountTypeId" OtherKey="AccountTypeId" Type="User" />
     </Type>
   </Table>
+  <Function Name="dbo.User_Signin" Method="User_Signin">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="User_SigninResult">
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccountTypeId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="AccountType" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PrivilageId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Privilage" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
